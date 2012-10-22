@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-mvc4movie-20121015160046;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-mvc4movie-20121015160046.mdf" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\dev\\projects\\dotnet\\mvc4movie\\mvc4movie\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
-  </parameter>
-  <parameter name="MovieDBContext-Web.config Connection String" description="MovieDBContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Movies.mdf;Integrated Security=True" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\dev\\projects\\dotnet\\mvc4movie\\mvc4movie\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MovieDBContext']/@connectionString" />
-  </parameter>
-</parameters>

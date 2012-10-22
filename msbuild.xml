@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectDir>.\</ProjectDir>
+    <ProjectName>mvc4movie</ProjectName>
+    <ProjectFile>$(ProjectDir)$(ProjectName).csproj</ProjectFile>
+    <TestServer>iis.corsamore.com</TestServer>
+  </PropertyGroup>
+
+  <Target Name="Clean">
+    <MSBuild Projects="$(ProjectFile)" Targets="Clean" />
+  </Target>
+
+  <Target Name="Build">
+    <MSBuild Projects="$(ProjectFile)" Targets="Build"/>
+  </Target>
+
+  <Target Name="Package">    
+    <MSBuild Projects="$(ProjectFile)" 
+             Properties="Configuration=$(Configuration);DeployOnBuild=true;DeployTarget=Package;DeployIisAppPath=mvc4movie" 
+             ContinueOnError="false" />
+  </Target>
+
+  <Target Name="DeployToTest">    
+    <Exec Command="&quot;$(ProjectDir)\obj\$(Configuration)\Package\$(ProjectName).deploy.cmd&quot; /y /m:https://$(TestServer):8172/MSDeploy.axd /u:Administrator /p:Alex@ndre666 /a:basic -enableRule:DoNotDeleteRule -AllowUntrusted" 
+          ContinueOnError="false" />
+  </Target>
+
+
+</Project>
+
