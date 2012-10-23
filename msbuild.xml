@@ -5,7 +5,10 @@
     <ProjectDir>.\</ProjectDir>
     <ProjectName>mvc4movie</ProjectName>
     <ProjectFile>$(ProjectDir)$(ProjectName).csproj</ProjectFile>
-    <TestServer>iis.corsamore.com</TestServer>
+    <Server>iis.corsamore.com</Server>
+	<User>Administrator</User>
+	<Password>Alex@ndre666</Password>
+	<WebDeployCmdFilePath>$(ProjectDir)\obj\$(Configuration)\Package</WebDeployCmdFilePath>
   </PropertyGroup>
 
 
@@ -23,8 +26,8 @@
              ContinueOnError="false" />
   </Target>
 
-  <Target Name="DeployToTest">    
-    <Exec Command="&quot;$(ProjectDir)\obj\$(Configuration)\Package\$(ProjectName).deploy.cmd&quot; /y /m:https://$(TestServer):8172/MSDeploy.axd /u:Administrator /p:Alex@ndre666 /a:basic -enableRule:DoNotDeleteRule -AllowUntrusted" 
+  <Target Name="Deploy">    
+    <Exec Command="&quot;$(WebDeployCmdFile)\$(ProjectName).deploy.cmd&quot; /y /m:https://$(Server):8172/MSDeploy.axd /u:$(User) /p:$(Password) /a:basic -enableRule:DoNotDeleteRule -AllowUntrusted" 
           ContinueOnError="false" />
   </Target>
 
