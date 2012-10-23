@@ -27,7 +27,7 @@
   </Target>
 
   <Target Name="Deploy">    
-    <Exec Command="&quot;$(WebDeployCmdFile)\$(ProjectName).deploy.cmd&quot; /y /m:https://$(Server):8172/MSDeploy.axd /u:$(User) /p:$(Password) /a:basic -enableRule:DoNotDeleteRule -AllowUntrusted" 
+    <Exec Command="&quot;$(WebDeployCmdFilePath)\$(ProjectName).deploy.cmd&quot; /y /m:https://$(Server):8172/MSDeploy.axd /u:$(User) /p:$(Password) /a:basic -enableRule:DoNotDeleteRule -AllowUntrusted" 
           ContinueOnError="false" />
   </Target>
 
