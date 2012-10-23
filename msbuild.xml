@@ -8,6 +8,7 @@
     <TestServer>iis.corsamore.com</TestServer>
   </PropertyGroup>
 
+
   <Target Name="Clean">
     <MSBuild Projects="$(ProjectFile)" Targets="Clean" />
   </Target>
